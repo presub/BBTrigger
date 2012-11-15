@@ -1,0 +1,9 @@
+package com.bb.trigger.messages;
+
+AppName#0=0;
+Button_Next#0=1;
+Trigger_Title_Bar#0=2;
+Action_Title_Bar#0=3;
+Date_Action_Description_Trigger#0=4;
+Trigger_Time_Triger_Name#0=5;
+Trigger_Time_Triger_Description#0=6;
