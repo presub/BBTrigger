@@ -7,6 +7,7 @@
 package com.bb.trigger;
 
 import net.rim.device.api.system.Application;
+import net.rim.device.api.ui.FontFamily;
 
 public final class GUILessApp extends Application
 { 
@@ -20,7 +21,14 @@ public final class GUILessApp extends Application
      public GUILessApp()
      {
           //Creates and starts a new BackGroundApp thread.
-
+    	 try
+    	 {
+    	     FontFamily fontFam = FontFamily.forName("BBMillbank");
+    	 }
+    	 catch (ClassNotFoundException e)
+    	 {
+    	     System.out.println("The specified font family was not found.");
+    	 }
           backGroundApp = new BackGroundApp();
           backGroundApp.start();
      }

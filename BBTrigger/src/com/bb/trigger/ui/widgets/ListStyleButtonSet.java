@@ -1,7 +1,7 @@
 package com.bb.trigger.ui.widgets;
 
-import net.rim.device.api.ui.*;
-import net.rim.device.api.ui.container.*;
+import net.rim.device.api.ui.Field;
+import net.rim.device.api.ui.container.VerticalFieldManager;
 
 /**
  * 

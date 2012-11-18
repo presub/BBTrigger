@@ -1,8 +1,16 @@
 package com.bb.trigger.ui.widgets;
 
-import net.rim.device.api.system.*;
-import net.rim.device.api.ui.*;
-import net.rim.device.api.ui.component.*;
+import net.rim.device.api.system.Bitmap;
+import net.rim.device.api.system.Characters;
+import net.rim.device.api.system.Display;
+import net.rim.device.api.ui.DrawStyle;
+import net.rim.device.api.ui.Field;
+import net.rim.device.api.ui.Font;
+import net.rim.device.api.ui.Graphics;
+import net.rim.device.api.ui.TouchEvent;
+import net.rim.device.api.ui.Touchscreen;
+import net.rim.device.api.ui.Ui;
+import net.rim.device.api.ui.component.LabelField;
 
 public class ListStyleButtonField extends Field {
 	public static int DRAWPOSITION_TOP = 0;

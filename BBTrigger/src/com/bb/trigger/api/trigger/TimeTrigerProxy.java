@@ -1,7 +1,5 @@
 package com.bb.trigger.api.trigger;
 
-import javax.wireless.messaging.Message;
-
 import com.bb.trigger.Messages;
 import com.bb.trigger.api.AbstractTrigger;
 import com.bb.trigger.api.ITriggerProxy;

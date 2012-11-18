@@ -1,6 +1,5 @@
 package com.bb.trigger.ui.style;
 
-import net.rim.device.api.ui.Field;
 import net.rim.device.api.ui.component.LabelField;
 
 /**

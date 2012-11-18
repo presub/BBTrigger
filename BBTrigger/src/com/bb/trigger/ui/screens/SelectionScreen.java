@@ -1,14 +1,14 @@
 package com.bb.trigger.ui.screens;
 
-import com.bb.trigger.api.ui.IDataProvider;
-import com.bb.trigger.api.ui.ILabelProvider;
-import com.bb.trigger.ui.widgets.ListStyleButtonField;
-import com.bb.trigger.ui.widgets.ListStyleButtonSet;
-
 import net.rim.device.api.system.Bitmap;
 import net.rim.device.api.ui.Field;
 import net.rim.device.api.ui.FieldChangeListener;
 import net.rim.device.api.ui.container.VerticalFieldManager;
+
+import com.bb.trigger.api.ui.IDataProvider;
+import com.bb.trigger.api.ui.ILabelProvider;
+import com.bb.trigger.ui.widgets.ListStyleButtonField;
+import com.bb.trigger.ui.widgets.ListStyleButtonSet;
 
 /**
  * Screen for..

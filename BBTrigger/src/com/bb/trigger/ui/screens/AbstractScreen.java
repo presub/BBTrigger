@@ -14,10 +14,10 @@ import com.bb.trigger.ui.style.StyleManager;
 public abstract class AbstractScreen extends MainScreen {
 
 	public AbstractScreen() {
-		createContents();
+
 	}
 
-	protected void createContents() {
+	public void createContents() {
 		IApplicationStyle style = StyleManager.getStyle();
 		LabelField titleBar = style.getTitleBar(getScreenTitle());
 		setTitle(titleBar);

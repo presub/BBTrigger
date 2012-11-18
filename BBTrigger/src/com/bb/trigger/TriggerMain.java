@@ -30,10 +30,15 @@ public class TriggerMain extends UiApplication {
 	 */
 	public TriggerMain() {
 		// Push a screen onto the UI stack for rendering.
-		pushScreen(new StartScreen());
-		pushScreen(new TimeTriggerScreen());
+		StartScreen startScreen = new StartScreen();
+		startScreen.createContents();
+		pushScreen(startScreen);
+		TimeTriggerScreen timeTriggerScreen = new TimeTriggerScreen();
+		timeTriggerScreen.createContents();
+		pushScreen(timeTriggerScreen);
 		TriggerManager triggerManager = new TriggerManager();
 		SelectionScreen screen = new SelectionScreen(triggerManager);
+		screen.createContents();
 		pushScreen(screen);
 	}
 }
