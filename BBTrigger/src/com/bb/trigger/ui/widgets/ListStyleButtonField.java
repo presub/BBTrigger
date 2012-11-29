@@ -276,7 +276,7 @@ public class ListStyleButtonField extends Field {
 	private static class MyLabelField extends LabelField {
 
 		// Factor for extending field height
-		private static final double factor = 1.7;
+		private static final double factor = 1.9;
 
 		private String description;
 
@@ -294,9 +294,9 @@ public class ListStyleButtonField extends Field {
 			super.paint(graphics);
 			int heightAnchor = (int) (getHeight() / 1.8);
 			Font font = graphics.getFont();
-			graphics.setFont(font.derive(Font.BOLD,
-					font.getHeight(Ui.UNITS_pt) - 1, Ui.UNITS_pt));
-			graphics.drawText(description, font.getBounds(getText()),
+			graphics.setFont(font.derive(Font.PLAIN,
+					font.getHeight(Ui.UNITS_pt) - 2, Ui.UNITS_pt));
+			graphics.drawText(description, 1,
 					heightAnchor);
 		}
 	}

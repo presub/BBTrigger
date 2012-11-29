@@ -14,11 +14,11 @@ public class AppStyle implements IApplicationStyle {
 		titleBar.setBackground(BackgroundFactory
 				.createLinearGradientBackground(Color.BLUE, Color.CADETBLUE,
 						Color.CADETBLUE, Color.BLUE));
-		titleBar.setPadding(10, 5, 10, 0);
+		titleBar.setPadding(10, 15, 10, 0);
 		return titleBar;
 	}
 
 	public int getDefaultHorizontalMargin() {
-		return (int) (Display.getWidth() * (0.1));
+		return (int) (Display.getWidth() * (0.05));
 	}
 }

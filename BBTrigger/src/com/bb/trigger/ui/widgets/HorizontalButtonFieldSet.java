@@ -1,5 +1,3 @@
-
-
 package com.bb.trigger.ui.widgets;
 
 

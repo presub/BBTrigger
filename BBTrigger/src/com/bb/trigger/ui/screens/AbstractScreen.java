@@ -35,4 +35,8 @@ public abstract class AbstractScreen extends MainScreen {
 
 	protected abstract void createScreenContents(VerticalFieldManager manager);
 
+	protected boolean onSavePrompt() {
+		return false;
+	}
+
 }

@@ -6,9 +6,12 @@ import net.rim.device.api.ui.container.VerticalFieldManager;
 import com.bb.trigger.Messages;
 import com.bb.trigger.ui.screens.AbstractScreen;
 
-public abstract class AbstractActionScreen extends AbstractScreen {
+public abstract class AbstractObjectScreen extends AbstractScreen {
 
-	public AbstractActionScreen() {
+	private String title;
+
+	public AbstractObjectScreen(String title) {
+		this.title = title;
 	}
 
 	protected void createScreenContents(VerticalFieldManager manager) {
@@ -21,7 +24,7 @@ public abstract class AbstractActionScreen extends AbstractScreen {
 	protected abstract void createSubPageContents(VerticalFieldManager manager);
 
 	protected String getScreenTitle() {
-		return Messages.getString(Messages.Action_Title_Bar);
+		return title;
 	}
 
 }

@@ -12,33 +12,45 @@ import com.bb.trigger.ui.widgets.HorizontalButtonFieldSet;
 
 public class StartScreen extends AbstractScreen {
 
-	ButtonField addButton;
-	ButtonField editProfileButton;
-	private ButtonField settingsButton;
-
-	LabelField descriptionLabel;
-
 	public StartScreen() {
 	}
 
 	protected void createScreenContents(VerticalFieldManager manager) {
 		// Configuration element
-		LabelField configurationLabel = new LabelField("Configuration");
-		manager.add(configurationLabel);
+		createConfiguration(manager);
+		manager.add(new SeparatorField());
+		createOptions(manager);
+		manager.add(new SeparatorField());
+		createExcecution(manager);
+		manager.add(new SeparatorField());
+		createLifeCycle(manager);
+	}
 
-		HorizontalButtonFieldSet configurationButtonManager = new HorizontalButtonFieldSet(
+	private void createLifeCycle(VerticalFieldManager manager) {
+		LabelField lifeCycleLabel = new LabelField("Lifecycle");
+		manager.add(lifeCycleLabel);
+
+		HorizontalButtonFieldSet lifecycleManager = new HorizontalButtonFieldSet(
 				USE_ALL_WIDTH);
-		addButton = new ButtonField("Add new Task", FIELD_HCENTER);
-		configurationButtonManager.add(addButton);
-		editProfileButton = new ButtonField("Edit Profile", FIELD_HCENTER);
-		configurationButtonManager.add(editProfileButton);
-		settingsButton = new ButtonField("Settings", FIELD_HCENTER);
-		configurationButtonManager.add(settingsButton);
-		manager.add(configurationButtonManager);
-		descriptionLabel = new LabelField("Profile tasks:", USE_ALL_WIDTH
-				| FIELD_HCENTER);
 
-		add(new SeparatorField());
+		ButtonField hideApp = new ButtonField("Hide app", FIELD_HCENTER);
+		hideApp.setChangeListener(new FieldChangeListener() {
+			public void fieldChanged(Field field, int context) {
+				UiApplication.getUiApplication().requestBackground();
+			}
+		});
+		lifecycleManager.add(hideApp);
+		ButtonField closeApp = new ButtonField("Close app", FIELD_HCENTER);
+		closeApp.setChangeListener(new FieldChangeListener() {
+			public void fieldChanged(Field field, int context) {
+				System.exit(0);
+			}
+		});
+		lifecycleManager.add(closeApp);
+		manager.add(lifecycleManager);
+	}
+
+	private void createExcecution(VerticalFieldManager manager) {
 		LabelField excecutionLabel = new LabelField("Excecution");
 		manager.add(excecutionLabel);
 		// Excecution
@@ -53,6 +65,17 @@ public class StartScreen extends AbstractScreen {
 			}
 		});
 		excecutionButtonManager.add(showLog);
+		manager.add(excecutionButtonManager);
+	}
+
+	private void createOptions(VerticalFieldManager manager) {
+		LabelField configurationLabel = new LabelField("Options");
+		manager.add(configurationLabel);
+		HorizontalButtonFieldSet optionsManager = new HorizontalButtonFieldSet(
+				USE_ALL_WIDTH);
+		ButtonField settingsButton = new ButtonField("Settings", FIELD_HCENTER);
+		optionsManager.add(settingsButton);
+
 		ButtonField info = new ButtonField("About", FIELD_HCENTER);
 		info.setChangeListener(new FieldChangeListener() {
 			public void fieldChanged(Field field, int context) {
@@ -61,14 +84,21 @@ public class StartScreen extends AbstractScreen {
 				UiApplication.getUiApplication().pushScreen(infoScreen);
 			}
 		});
-		excecutionButtonManager.add(info);
-		ButtonField hideApp = new ButtonField("Hide application", FIELD_HCENTER);
-		hideApp.setChangeListener(new FieldChangeListener() {
-			public void fieldChanged(Field field, int context) {
-				UiApplication.getUiApplication().requestBackground();
-			}
-		});
-		excecutionButtonManager.add(hideApp);
-		manager.add(excecutionButtonManager);
+		optionsManager.add(info);
+		manager.add(optionsManager);
+	}
+
+	private void createConfiguration(VerticalFieldManager manager) {
+		LabelField configurationLabel = new LabelField("Configuration");
+		manager.add(configurationLabel);
+
+		HorizontalButtonFieldSet configurationButtonManager = new HorizontalButtonFieldSet(
+				USE_ALL_WIDTH);
+		ButtonField addButton = new ButtonField("Add Task", FIELD_HCENTER);
+		configurationButtonManager.add(addButton);
+		ButtonField editProfileButton = new ButtonField("Edit Profile",
+				FIELD_HCENTER);
+		configurationButtonManager.add(editProfileButton);
+		manager.add(configurationButtonManager);
 	}
 }

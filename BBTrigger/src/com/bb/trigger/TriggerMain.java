@@ -37,8 +37,15 @@ public class TriggerMain extends UiApplication {
 		timeTriggerScreen.createContents();
 		pushScreen(timeTriggerScreen);
 		TriggerManager triggerManager = new TriggerManager();
-		SelectionScreen screen = new SelectionScreen(triggerManager);
+		SelectionScreen screen = new SelectionScreen(triggerManager, "Triggers");
 		screen.createContents();
 		pushScreen(screen);
+	}
+
+	/**
+	 * Send app to background
+	 */
+	public boolean requestClose() {
+		return false;
 	}
 }
