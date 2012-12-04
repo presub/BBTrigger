@@ -8,6 +8,7 @@ import com.bb.trigger.api.Task;
 import com.bb.trigger.api.TriggerManager;
 import com.bb.trigger.ui.screens.AbstractObjectScreen;
 import com.bb.trigger.ui.screens.ObjectSelectionScreen;
+import com.bb.trigger.ui.screens.SummaryScreen;
 import com.bb.trigger.ui.screens.TaskScreen;
 
 public class CreateTaskProcess extends AbstractProcess {
