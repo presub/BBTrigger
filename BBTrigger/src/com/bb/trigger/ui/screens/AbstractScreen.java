@@ -5,6 +5,7 @@ import net.rim.device.api.ui.container.MainScreen;
 import net.rim.device.api.ui.container.VerticalFieldManager;
 
 import com.bb.trigger.Messages;
+import com.bb.trigger.messages.MessagesResource;
 import com.bb.trigger.ui.style.IApplicationStyle;
 import com.bb.trigger.ui.style.StyleManager;
 
@@ -30,13 +31,9 @@ public abstract class AbstractScreen extends MainScreen {
 	}
 
 	protected String getScreenTitle() {
-		return Messages.getString(Messages.AppName);
+		return Messages.getString(MessagesResource.AppName);
 	}
 
 	protected abstract void createScreenContents(VerticalFieldManager manager);
-
-	protected boolean onSavePrompt() {
-		return false;
-	}
 
 }

@@ -19,6 +19,6 @@ public class AppStyle implements IApplicationStyle {
 	}
 
 	public int getDefaultHorizontalMargin() {
-		return (int) (Display.getWidth() * (0.05));
+		return (int) (Display.getWidth() * (0.02));
 	}
 }

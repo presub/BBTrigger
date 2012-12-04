@@ -2,9 +2,6 @@ package com.bb.trigger;
 
 import net.rim.device.api.ui.UiApplication;
 
-import com.bb.trigger.api.TriggerManager;
-import com.bb.trigger.api.ui.trigger.TimeTriggerScreen;
-import com.bb.trigger.ui.screens.SelectionScreen;
 import com.bb.trigger.ui.screens.StartScreen;
 
 /**
@@ -33,13 +30,6 @@ public class TriggerMain extends UiApplication {
 		StartScreen startScreen = new StartScreen();
 		startScreen.createContents();
 		pushScreen(startScreen);
-		TimeTriggerScreen timeTriggerScreen = new TimeTriggerScreen();
-		timeTriggerScreen.createContents();
-		pushScreen(timeTriggerScreen);
-		TriggerManager triggerManager = new TriggerManager();
-		SelectionScreen screen = new SelectionScreen(triggerManager, "Triggers");
-		screen.createContents();
-		pushScreen(screen);
 	}
 
 	/**

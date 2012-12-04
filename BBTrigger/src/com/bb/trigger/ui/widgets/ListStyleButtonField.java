@@ -296,8 +296,7 @@ public class ListStyleButtonField extends Field {
 			Font font = graphics.getFont();
 			graphics.setFont(font.derive(Font.PLAIN,
 					font.getHeight(Ui.UNITS_pt) - 2, Ui.UNITS_pt));
-			graphics.drawText(description, 1,
-					heightAnchor);
+			graphics.drawText(description, 1, heightAnchor);
 		}
 	}
 }

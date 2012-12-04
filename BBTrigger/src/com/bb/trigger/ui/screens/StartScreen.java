@@ -8,15 +8,20 @@ import net.rim.device.api.ui.component.LabelField;
 import net.rim.device.api.ui.component.SeparatorField;
 import net.rim.device.api.ui.container.VerticalFieldManager;
 
+import com.bb.trigger.process.CreateTaskProcess;
+import com.bb.trigger.process.IProcess;
 import com.bb.trigger.ui.widgets.HorizontalButtonFieldSet;
 
+/**
+ * Main screen for this application.
+ */
 public class StartScreen extends AbstractScreen {
 
 	public StartScreen() {
+
 	}
 
 	protected void createScreenContents(VerticalFieldManager manager) {
-		// Configuration element
 		createConfiguration(manager);
 		manager.add(new SeparatorField());
 		createOptions(manager);
@@ -24,6 +29,43 @@ public class StartScreen extends AbstractScreen {
 		createExcecution(manager);
 		manager.add(new SeparatorField());
 		createLifeCycle(manager);
+	}
+
+	private void createConfiguration(VerticalFieldManager manager) {
+		LabelField configurationLabel = new LabelField("Configuration");
+		manager.add(configurationLabel);
+
+		HorizontalButtonFieldSet configurationButtonManager = new HorizontalButtonFieldSet(
+				USE_ALL_WIDTH);
+		ButtonField addButton = new ButtonField("Add Task", FIELD_HCENTER);
+		addButton.setChangeListener(new FieldChangeListener() {
+			public void fieldChanged(Field field, int context) {
+				IProcess process = new CreateTaskProcess();
+				process.run();
+			}
+		});
+		configurationButtonManager.add(addButton);
+		ButtonField editProfileButton = new ButtonField("Edit Profile",
+				FIELD_HCENTER);
+		configurationButtonManager.add(editProfileButton);
+		manager.add(configurationButtonManager);
+	}
+
+	private void createExcecution(VerticalFieldManager manager) {
+		LabelField excecutionLabel = new LabelField("Excecution");
+		manager.add(excecutionLabel);
+		HorizontalButtonFieldSet excecutionButtonManager = new HorizontalButtonFieldSet(
+				USE_ALL_WIDTH);
+		ButtonField showLog = new ButtonField("Log", FIELD_HCENTER);
+		showLog.setChangeListener(new FieldChangeListener() {
+			public void fieldChanged(Field field, int context) {
+				LogScreen logScreen = new LogScreen();
+				logScreen.createContents();
+				UiApplication.getUiApplication().pushScreen(logScreen);
+			}
+		});
+		excecutionButtonManager.add(showLog);
+		manager.add(excecutionButtonManager);
 	}
 
 	private void createLifeCycle(VerticalFieldManager manager) {
@@ -50,24 +92,6 @@ public class StartScreen extends AbstractScreen {
 		manager.add(lifecycleManager);
 	}
 
-	private void createExcecution(VerticalFieldManager manager) {
-		LabelField excecutionLabel = new LabelField("Excecution");
-		manager.add(excecutionLabel);
-		// Excecution
-		HorizontalButtonFieldSet excecutionButtonManager = new HorizontalButtonFieldSet(
-				USE_ALL_WIDTH);
-		ButtonField showLog = new ButtonField("Log", FIELD_HCENTER);
-		showLog.setChangeListener(new FieldChangeListener() {
-			public void fieldChanged(Field field, int context) {
-				LogScreen logScreen = new LogScreen();
-				logScreen.createContents();
-				UiApplication.getUiApplication().pushScreen(logScreen);
-			}
-		});
-		excecutionButtonManager.add(showLog);
-		manager.add(excecutionButtonManager);
-	}
-
 	private void createOptions(VerticalFieldManager manager) {
 		LabelField configurationLabel = new LabelField("Options");
 		manager.add(configurationLabel);
@@ -88,17 +112,4 @@ public class StartScreen extends AbstractScreen {
 		manager.add(optionsManager);
 	}
 
-	private void createConfiguration(VerticalFieldManager manager) {
-		LabelField configurationLabel = new LabelField("Configuration");
-		manager.add(configurationLabel);
-
-		HorizontalButtonFieldSet configurationButtonManager = new HorizontalButtonFieldSet(
-				USE_ALL_WIDTH);
-		ButtonField addButton = new ButtonField("Add Task", FIELD_HCENTER);
-		configurationButtonManager.add(addButton);
-		ButtonField editProfileButton = new ButtonField("Edit Profile",
-				FIELD_HCENTER);
-		configurationButtonManager.add(editProfileButton);
-		manager.add(configurationButtonManager);
-	}
 }
