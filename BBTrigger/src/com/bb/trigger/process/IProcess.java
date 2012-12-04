@@ -5,4 +5,6 @@ public interface IProcess {
 	void run();
 
 	void finalize();
+
+	void cancel();
 }

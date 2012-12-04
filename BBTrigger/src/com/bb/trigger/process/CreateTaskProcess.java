@@ -6,6 +6,8 @@ import com.bb.trigger.api.ActionManager;
 import com.bb.trigger.api.IObjectDescriptor;
 import com.bb.trigger.api.Task;
 import com.bb.trigger.api.TriggerManager;
+import com.bb.trigger.excecution.ExecutionManager;
+import com.bb.trigger.excecution.TaskRepository;
 import com.bb.trigger.ui.screens.AbstractObjectScreen;
 import com.bb.trigger.ui.screens.ObjectSelectionScreen;
 import com.bb.trigger.ui.screens.SummaryScreen;
@@ -28,6 +30,14 @@ public class CreateTaskProcess extends AbstractProcess {
 	}
 
 	public void finalize() {
+		TaskRepository taskRepository = ExecutionManager.getINSTANCE()
+				.getTaskRepository();
+		taskRepository.addTask(task);
+		popScreens();
+	}
+
+	public void cancel() {
+		popScreens();
 	}
 
 	private void showTriggerSelectionScreen() {
@@ -58,6 +68,7 @@ public class CreateTaskProcess extends AbstractProcess {
 	public void showSummaryScreen(String taskName) {
 		createTask(taskName);
 		SummaryScreen screen = new SummaryScreen(this);
+		screen.createContents();
 		pushScreen(screen);
 	}
 
@@ -79,5 +90,4 @@ public class CreateTaskProcess extends AbstractProcess {
 	public void setAction(AbstractAction action) {
 		this.action = action;
 	}
-
 }

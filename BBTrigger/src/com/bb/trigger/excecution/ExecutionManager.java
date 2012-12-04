@@ -1,6 +1,5 @@
 package com.bb.trigger.excecution;
 
-
 public class ExecutionManager {
 
 	private final TaskRepository taskRepository;
@@ -10,7 +9,7 @@ public class ExecutionManager {
 		taskRepository = new TaskRepository();
 	}
 
-	public ExecutionManager getINSTANCE() {
+	public static ExecutionManager getINSTANCE() {
 		return INSTANCE;
 	}
 
