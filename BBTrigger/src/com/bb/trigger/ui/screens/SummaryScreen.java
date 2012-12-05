@@ -18,16 +18,26 @@ public class SummaryScreen extends AbstractScreen {
 	}
 
 	protected void createScreenContents(VerticalFieldManager manager) {
-		LabelField field = new LabelField();
+		LabelField descriptionText = new LabelField();
 		Task task = process.getTask();
-		field.setText("Creating a new task named:" + task + "\n");
+		descriptionText.setText("Creating a new task named:" + task.getName()
+				+ "\n");
 		// TODO trigger and action description
-		ButtonField okButton = new ButtonField();
+		manager.add(descriptionText);
+		ButtonField okButton = new ButtonField("Ok");
 		okButton.setChangeListener(new FieldChangeListener() {
 			public void fieldChanged(Field field, int context) {
 				process.finalize();
 			}
 		});
-	}
+		manager.add(okButton);
 
+		ButtonField cancelButton = new ButtonField("Cancel");
+		cancelButton.setChangeListener(new FieldChangeListener() {
+			public void fieldChanged(Field field, int context) {
+				process.cancel();
+			}
+		});
+		manager.add(cancelButton);
+	}
 }

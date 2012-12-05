@@ -7,6 +7,7 @@ public class Task implements Persistable {
 	private final String name;
 	private final AbstractAction action;
 	private final AbstractTrigger trigger;
+	private boolean enabled = true;
 
 	public Task(String name, AbstractAction action, AbstractTrigger trigger) {
 		super();
@@ -25,5 +26,13 @@ public class Task implements Persistable {
 
 	public String getName() {
 		return name;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 }

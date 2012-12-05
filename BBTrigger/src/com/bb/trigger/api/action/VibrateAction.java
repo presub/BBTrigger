@@ -2,10 +2,11 @@ package com.bb.trigger.api.action;
 
 import net.rim.device.api.system.Alert;
 import net.rim.device.api.ui.UiApplication;
+import net.rim.device.api.util.Persistable;
 
 import com.bb.trigger.api.AbstractAction;
 
-public class VibrateAction extends AbstractAction {
+public class VibrateAction extends AbstractAction implements Persistable {
 
 	private final int vibrationTime;
 

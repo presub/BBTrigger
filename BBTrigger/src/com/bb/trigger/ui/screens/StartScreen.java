@@ -47,6 +47,13 @@ public class StartScreen extends AbstractScreen {
 		configurationButtonManager.add(addButton);
 		ButtonField editProfileButton = new ButtonField("Edit Profile",
 				FIELD_HCENTER);
+		editProfileButton.setChangeListener(new FieldChangeListener() {
+
+			public void fieldChanged(Field field, int context) {
+				ManageTasksScreen manageTasksScreen = new ManageTasksScreen();
+				UiApplication.getUiApplication().pushScreen(manageTasksScreen);
+			}
+		});
 		configurationButtonManager.add(editProfileButton);
 		manager.add(configurationButtonManager);
 	}

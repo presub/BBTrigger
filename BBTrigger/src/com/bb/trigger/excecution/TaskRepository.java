@@ -40,6 +40,11 @@ public class TaskRepository {
 		commit();
 	}
 
+	// TODO Improve (maybe some id)
+	public void editTask(Task task) {
+		commit();
+	}
+
 	private void commit() {
 		persistentObject.setContents(tasks);
 		persistentObject.commit();
