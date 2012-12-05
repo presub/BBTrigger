@@ -18,6 +18,10 @@ public abstract class AbstractScreen extends MainScreen {
 
 	}
 
+	public AbstractScreen(long style) {
+		super(style);
+	}
+
 	public void createContents() {
 		IApplicationStyle style = StyleManager.getStyle();
 		LabelField titleBar = style.getTitleBar(getScreenTitle());

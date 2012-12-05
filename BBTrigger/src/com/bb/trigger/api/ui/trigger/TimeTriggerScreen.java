@@ -22,10 +22,8 @@ public class TimeTriggerScreen extends AbstractTriggerScreen {
 	}
 
 	protected void createSubPageContents(VerticalFieldManager manager) {
-		String triggerMessage = Messages
-				.getString(MessagesResource.Date_Action_Description_Trigger);
-		datePicker = new DateField(triggerMessage, System.currentTimeMillis(),
-				DateField.DATE_TIME);
+		String triggerMessage = Messages.getString(MessagesResource.Date_Action_Description_Trigger);
+		datePicker = new DateField(triggerMessage, System.currentTimeMillis(), DateField.DATE_TIME);
 		datePicker.setChangeListener(new FieldChangeListener() {
 			public void fieldChanged(Field field, int context) {
 				date = datePicker.getDate();

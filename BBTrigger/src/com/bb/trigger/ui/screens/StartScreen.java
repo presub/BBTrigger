@@ -51,6 +51,7 @@ public class StartScreen extends AbstractScreen {
 
 			public void fieldChanged(Field field, int context) {
 				ManageTasksScreen manageTasksScreen = new ManageTasksScreen();
+				manageTasksScreen.createContents();
 				UiApplication.getUiApplication().pushScreen(manageTasksScreen);
 			}
 		});
